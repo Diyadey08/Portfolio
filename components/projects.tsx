@@ -44,7 +44,7 @@ const projects = [
     githubUrl: "#",
     featured: false,
     stats: { stars: 12, views: 650 },
-    gradient: "from-green-500 to-emerald-500",
+    gradient: "from-emerald-500 to-green-500",
   },
   {
     title: "Shopify - Modern Shopping App",
@@ -62,8 +62,10 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 px-4 relative">
-      <div className="max-w-7xl mx-auto">
+    <section id="projects" className="py-24 px-4 relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-5"></div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -72,11 +74,11 @@ export default function Projects() {
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-400 bg-clip-text text-transparent">
               Featured Projects
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Showcasing my latest work in web development, blockchain, and AI
           </p>
         </motion.div>
@@ -91,8 +93,8 @@ export default function Projects() {
               viewport={{ once: true }}
             >
               <Card
-                className={`overflow-hidden border-0 shadow-xl bg-white/80 backdrop-blur-sm hover:shadow-2xl transition-all duration-500 group ${
-                  project.featured ? "ring-2 ring-purple-200" : ""
+                className={`overflow-hidden border-0 shadow-xl bg-slate-800/70 backdrop-blur-sm hover:shadow-2xl transition-all duration-500 group border border-gray-700/50 ${
+                  project.featured ? "ring-2 ring-emerald-500/30" : ""
                 }`}
               >
                 <div className={`grid ${project.featured ? "lg:grid-cols-2" : "lg:grid-cols-5"} gap-0`}>
@@ -132,20 +134,20 @@ export default function Projects() {
 
                   <div className={`p-8 ${project.featured ? "lg:col-span-1" : "lg:col-span-3"}`}>
                     <CardHeader className="p-0 mb-6">
-                      <CardTitle className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-purple-600 transition-colors">
+                      <CardTitle className="text-2xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">
                         {project.title}
                       </CardTitle>
                     </CardHeader>
 
                     <CardContent className="p-0">
-                      <p className="text-gray-600 mb-6 leading-relaxed">{project.description}</p>
+                      <p className="text-gray-300 mb-6 leading-relaxed">{project.description}</p>
 
                       <div className="flex flex-wrap gap-2 mb-8">
                         {project.technologies.map((tech, techIndex) => (
                           <Badge
                             key={techIndex}
                             variant="outline"
-                            className="text-xs hover:bg-purple-50 hover:border-purple-200 transition-colors"
+                            className="text-xs hover:bg-emerald-500/10 hover:border-emerald-400/50 transition-colors border-gray-600 text-gray-300"
                           >
                             {tech}
                           </Badge>
@@ -169,7 +171,7 @@ export default function Projects() {
                           <Button
                             asChild
                             variant="outline"
-                            className="border-2 hover:bg-gray-50 transition-all duration-300"
+                            className="border-2 border-gray-600 hover:bg-slate-700/50 text-gray-300 hover:text-white transition-all duration-300 bg-transparent"
                           >
                             <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                               <Github className="w-4 h-4 mr-2" />

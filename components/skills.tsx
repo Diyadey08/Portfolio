@@ -10,7 +10,7 @@ const skillCategories = [
     title: "Frontend Development",
     icon: Globe,
     skills: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "HTML5", "CSS3"],
-    color: "text-blue-600",
+    color: "text-blue-400",
     gradient: "from-blue-500 to-cyan-500",
     level: 95,
   },
@@ -18,15 +18,15 @@ const skillCategories = [
     title: "Backend Development",
     icon: Code,
     skills: ["Node.js", "Express.js", "Python", "Django", "RESTful APIs", "GraphQL"],
-    color: "text-green-600",
-    gradient: "from-green-500 to-emerald-500",
+    color: "text-emerald-400",
+    gradient: "from-emerald-500 to-green-500",
     level: 90,
   },
   {
     title: "Database & Storage",
     icon: Database,
     skills: ["MongoDB", "MySQL", "PostgreSQL", "Redis", "Firebase"],
-    color: "text-purple-600",
+    color: "text-purple-400",
     gradient: "from-purple-500 to-pink-500",
     level: 85,
   },
@@ -34,15 +34,15 @@ const skillCategories = [
     title: "Blockchain & Web3",
     icon: Zap,
     skills: ["Solidity", "Web3.js", "Ethereum", "Smart Contracts", "DeFi"],
-    color: "text-orange-600",
-    gradient: "from-orange-500 to-red-500",
+    color: "text-yellow-400",
+    gradient: "from-yellow-500 to-orange-500",
     level: 80,
   },
   {
     title: "AI & Machine Learning",
     icon: Cpu,
     skills: ["TensorFlow", "Scikit-learn", "Pandas", "NumPy", "OpenAI API"],
-    color: "text-indigo-600",
+    color: "text-indigo-400",
     gradient: "from-indigo-500 to-purple-500",
     level: 75,
   },
@@ -50,7 +50,7 @@ const skillCategories = [
     title: "DevOps & Tools",
     icon: Terminal,
     skills: ["Git", "Docker", "AWS", "Vercel", "Linux", "CI/CD"],
-    color: "text-red-600",
+    color: "text-red-400",
     gradient: "from-red-500 to-pink-500",
     level: 85,
   },
@@ -58,7 +58,7 @@ const skillCategories = [
     title: "Design & UI/UX",
     icon: Palette,
     skills: ["Figma", "Adobe XD", "Responsive Design", "User Experience"],
-    color: "text-pink-600",
+    color: "text-pink-400",
     gradient: "from-pink-500 to-rose-500",
     level: 70,
   },
@@ -66,7 +66,7 @@ const skillCategories = [
     title: "Cloud & Infrastructure",
     icon: Cloud,
     skills: ["Google Cloud", "AWS", "Vercel", "Netlify", "MongoDB Atlas"],
-    color: "text-cyan-600",
+    color: "text-cyan-400",
     gradient: "from-cyan-500 to-blue-500",
     level: 80,
   },
@@ -74,8 +74,8 @@ const skillCategories = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 px-4 bg-gradient-to-br from-gray-50 to-purple-50 relative">
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+    <section id="skills" className="py-24 px-4 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative">
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-5"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
@@ -86,11 +86,11 @@ export default function Skills() {
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-400 bg-clip-text text-transparent">
               Technical Skills
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             A comprehensive toolkit for building modern, scalable applications
           </p>
         </motion.div>
@@ -107,19 +107,19 @@ export default function Skills() {
                 viewport={{ once: true }}
                 whileHover={{ y: -5 }}
               >
-                <Card className="h-full border-0 shadow-xl bg-white/80 backdrop-blur-sm hover:shadow-2xl transition-all duration-300 group overflow-hidden">
+                <Card className="h-full border-0 shadow-xl bg-slate-800/70 backdrop-blur-sm hover:shadow-2xl transition-all duration-300 group overflow-hidden border border-gray-700/50">
                   <CardHeader className="pb-4">
                     <div className="flex items-center gap-3 mb-4">
                       <div
-                        className={`p-3 rounded-xl bg-gradient-to-r ${category.gradient} text-white group-hover:scale-110 transition-transform duration-300`}
+                        className={`p-3 rounded-xl bg-gradient-to-r ${category.gradient} text-white group-hover:scale-110 transition-transform duration-300 shadow-lg`}
                       >
                         <IconComponent className="w-6 h-6" />
                       </div>
                       <div className="flex-1">
-                        <CardTitle className="text-lg font-bold text-gray-900 group-hover:text-purple-600 transition-colors">
+                        <CardTitle className="text-lg font-bold text-white group-hover:text-emerald-400 transition-colors">
                           {category.title}
                         </CardTitle>
-                        <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
+                        <div className="w-full bg-slate-700 rounded-full h-2 mt-2">
                           <motion.div
                             initial={{ width: 0 }}
                             whileInView={{ width: `${category.level}%` }}
@@ -128,7 +128,7 @@ export default function Skills() {
                             className={`h-2 rounded-full bg-gradient-to-r ${category.gradient}`}
                           />
                         </div>
-                        <span className="text-xs text-gray-500 mt-1">{category.level}% Proficiency</span>
+                        <span className="text-xs text-gray-400 mt-1">{category.level}% Proficiency</span>
                       </div>
                     </div>
                   </CardHeader>
@@ -145,7 +145,7 @@ export default function Skills() {
                         >
                           <Badge
                             variant="secondary"
-                            className="text-xs hover:bg-purple-50 hover:text-purple-700 transition-colors cursor-default"
+                            className="text-xs hover:bg-emerald-500/20 hover:text-emerald-300 transition-colors cursor-default bg-slate-700/50 text-gray-300 border-gray-600"
                           >
                             {skill}
                           </Badge>

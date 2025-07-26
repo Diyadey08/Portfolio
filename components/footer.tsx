@@ -11,9 +11,9 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white relative overflow-hidden">
+    <footer className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10"></div>
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-5"></div>
 
       <div className="relative z-10">
         {/* Main Footer Content */}
@@ -28,10 +28,10 @@ export default function Footer() {
               className="lg:col-span-2"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+                <div className="w-12 h-12 bg-gradient-to-r from-emerald-500 via-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
                   <Code className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <h3 className="text-3xl font-bold bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-400 bg-clip-text text-transparent">
                   Diya Dey
                 </h3>
               </div>
@@ -41,15 +41,25 @@ export default function Footer() {
               </p>
               <div className="flex gap-4">
                 {[
-                  { icon: Phone, href: "tel:+919647844040", color: "hover:text-green-400" },
-                  { icon: Mail, href: "mailto:diyadey310804@gmail.com", color: "hover:text-red-400" },
-                  { icon: Linkedin, href: "#", color: "hover:text-blue-400" },
-                  { icon: Github, href: "#", color: "hover:text-gray-300" },
+                  {
+                    icon: Phone,
+                    href: "tel:+919647844040",
+                    color: "hover:text-emerald-400",
+                    bg: "hover:bg-emerald-400/20",
+                  },
+                  {
+                    icon: Mail,
+                    href: "mailto:diyadey310804@gmail.com",
+                    color: "hover:text-blue-400",
+                    bg: "hover:bg-blue-400/20",
+                  },
+                  { icon: Linkedin, href: "#", color: "hover:text-purple-400", bg: "hover:bg-purple-400/20" },
+                  { icon: Github, href: "#", color: "hover:text-yellow-400", bg: "hover:bg-yellow-400/20" },
                 ].map((social, index) => (
                   <motion.div key={index} whileHover={{ scale: 1.2, y: -2 }} whileTap={{ scale: 0.9 }}>
                     <Link
                       href={social.href}
-                      className={`text-gray-400 ${social.color} transition-all duration-300 p-3 rounded-full hover:bg-white/10`}
+                      className={`text-gray-400 ${social.color} ${social.bg} transition-all duration-300 p-3 rounded-full border border-gray-700/50 hover:border-gray-600`}
                     >
                       <social.icon className="w-6 h-6" />
                     </Link>
@@ -77,9 +87,9 @@ export default function Footer() {
                   <motion.li key={index} whileHover={{ x: 5 }} transition={{ type: "spring", stiffness: 300 }}>
                     <Link
                       href={link.href}
-                      className="text-gray-400 hover:text-purple-400 transition-colors duration-300 flex items-center gap-2 group"
+                      className="text-gray-400 hover:text-emerald-400 transition-colors duration-300 flex items-center gap-2 group"
                     >
-                      <span className="w-1 h-1 bg-purple-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                      <span className="w-1 h-1 bg-emerald-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
                       {link.label}
                     </Link>
                   </motion.li>
@@ -110,9 +120,9 @@ export default function Footer() {
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="flex items-center gap-3 hover:text-purple-400 transition-colors duration-300"
+                    className="flex items-center gap-3 hover:text-emerald-400 transition-colors duration-300"
                   >
-                    <div className="w-2 h-2 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"></div>
+                    <div className="w-2 h-2 bg-gradient-to-r from-emerald-400 via-blue-400 to-purple-400 rounded-full"></div>
                     {tech}
                   </motion.li>
                 ))}
@@ -147,7 +157,7 @@ export default function Footer() {
                   onClick={scrollToTop}
                   variant="outline"
                   size="sm"
-                  className="border-gray-600 text-gray-400 hover:text-white hover:border-purple-400 hover:bg-purple-400/10 transition-all duration-300"
+                  className="border-gray-600 text-gray-400 hover:text-white hover:border-emerald-400 hover:bg-emerald-400/10 transition-all duration-300 bg-transparent"
                 >
                   <ArrowUp className="w-4 h-4 mr-2" />
                   Back to Top

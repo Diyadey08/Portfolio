@@ -32,17 +32,17 @@ export default function Navigation() {
       animate={{ y: 0 }}
       transition={{ duration: 0.8 }}
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-        isScrolled ? "bg-white/90 backdrop-blur-md shadow-lg border-b border-white/20" : "bg-transparent"
+        isScrolled ? "bg-slate-900/95 backdrop-blur-md shadow-2xl border-b border-emerald-500/20" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link href="/" className="flex items-center gap-2 text-2xl font-bold">
-              <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 via-blue-600 to-purple-600 rounded-lg flex items-center justify-center shadow-lg">
                 <Code className="w-6 h-6 text-white" />
               </div>
-              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-400 bg-clip-text text-transparent">
                 Diya Dey
               </span>
             </Link>
@@ -59,10 +59,14 @@ export default function Navigation() {
               >
                 <Link
                   href={item.href}
-                  className="text-gray-600 hover:text-purple-600 transition-colors duration-300 font-medium relative group"
+                  className="text-yellow-300 hover:text-yellow-400 transition-all duration-300 font-medium relative group text-lg"
                 >
                   {item.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-600 to-pink-600 group-hover:w-full transition-all duration-300"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-400 via-blue-400 to-purple-400 group-hover:w-full transition-all duration-300"></span>
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 via-blue-500/10 to-purple-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
+                    whileHover={{ scale: 1.1 }}
+                  />
                 </Link>
               </motion.div>
             ))}
@@ -70,12 +74,12 @@ export default function Navigation() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
               <Button
                 asChild
-                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-gradient-to-r from-emerald-500 via-blue-600 to-purple-600 hover:from-emerald-400 hover:via-blue-500 hover:to-purple-500 text-white shadow-lg hover:shadow-xl transition-all duration-300 border-0 px-6 py-2 text-lg font-semibold"
               >
                 <Link href="#contact">Hire Me</Link>
               </Button>
@@ -84,7 +88,7 @@ export default function Navigation() {
 
           {/* Mobile Navigation Toggle */}
           <motion.button
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="lg:hidden p-2 rounded-lg hover:bg-slate-800/50 transition-colors text-yellow-300"
             onClick={() => setIsOpen(!isOpen)}
             whileTap={{ scale: 0.95 }}
           >
@@ -122,7 +126,7 @@ export default function Navigation() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden bg-white/95 backdrop-blur-md border-t border-gray-200 overflow-hidden"
+              className="lg:hidden bg-slate-900/98 backdrop-blur-md border-t border-emerald-500/20 overflow-hidden"
             >
               <div className="px-4 py-6 space-y-4">
                 {navItems.map((item, index) => (
@@ -134,7 +138,7 @@ export default function Navigation() {
                   >
                     <Link
                       href={item.href}
-                      className="block py-3 px-4 text-gray-600 hover:text-purple-600 hover:bg-purple-50 rounded-lg transition-all duration-300 font-medium"
+                      className="block py-3 px-4 text-yellow-300 hover:text-yellow-400 hover:bg-gradient-to-r hover:from-emerald-500/10 hover:via-blue-500/10 hover:to-purple-500/10 rounded-lg transition-all duration-300 font-medium"
                       onClick={() => setIsOpen(false)}
                     >
                       {item.label}
@@ -149,7 +153,7 @@ export default function Navigation() {
                 >
                   <Button
                     asChild
-                    className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white shadow-lg"
+                    className="w-full bg-gradient-to-r from-emerald-500 via-blue-600 to-purple-600 hover:from-emerald-400 hover:via-blue-500 hover:to-purple-500 text-white shadow-lg"
                   >
                     <Link href="#contact" onClick={() => setIsOpen(false)}>
                       Hire Me
