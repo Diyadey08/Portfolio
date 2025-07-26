@@ -5,6 +5,7 @@ import { Github, Linkedin, Mail, Phone, Download, ArrowDown } from "lucide-react
 import Link from "next/link"
 import { motion } from "framer-motion"
 import Orb from "@/components/ui/orb"
+import DynamicProfilePicture from "./ui/dynamic-profile-picture"
 
 export default function Hero() {
   return (
@@ -65,21 +66,9 @@ export default function Hero() {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-            className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-r from-emerald-400 via-blue-500 to-purple-600 p-1 shadow-2xl relative overflow-hidden group"
+            className="w-32 h-32 mx-auto mb-8"
           >
-            <div className="w-full h-full rounded-full bg-slate-950 flex items-center justify-center relative overflow-hidden">
-              <img
-                src="/placeholder.svg?height=120&width=120&text=Your+Photo"
-                alt="Diya Dey"
-                className="w-full h-full object-cover rounded-full relative z-10"
-              />
-
-              {/* Mystical glow overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 via-blue-500/20 to-purple-500/20 rounded-full animate-pulse" />
-
-              {/* Mystical border effect */}
-              <div className="absolute inset-0 rounded-full border-2 border-gradient-to-r from-emerald-400/30 via-blue-500/30 to-purple-500/30" />
-            </div>
+            <DynamicProfilePicture />
           </motion.div>
 
           <motion.h1

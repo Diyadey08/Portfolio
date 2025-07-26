@@ -1,0 +1,31 @@
+{
+  "profileImages": [
+    {
+      "id": 1,
+      "src": "/pic1-removebg-preview.jpg",
+      "alt": "Diya Dey - Professional Portrait",
+      "title": "Professional Look",
+      "hue": 120
+    },
+    {
+      "id": 2,
+      "src": "/pic 3.jpg",
+      "alt": "Diya Dey - Casual Portrait",
+      "title": "Casual Vibe",
+      "hue": 240
+    },
+    {
+      "id": 3,
+      "src": "/pic 2.jpg",
+      "alt": "Diya Dey - Creative Portrait",
+      "title": "Creative Mode",
+      "hue": 300
+    }
+  ],
+  "settings": {
+    "autoChangeInterval": 4000,
+    "transitionDuration": 800,
+    "enableHoverPause": true,
+    "showIndicators": true
+  }
+}

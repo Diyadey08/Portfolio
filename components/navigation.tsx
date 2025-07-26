@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Code } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
+import TrueFocus from "./ui/true-focus"
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -57,14 +58,42 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link href="/" className="flex items-center gap-2 text-2xl font-bold">
-              <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 via-blue-600 to-purple-600 rounded-lg flex items-center justify-center shadow-lg relative overflow-hidden">
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 via-blue-600 to-purple-600 rounded-lg flex items-center justify-center shadow-lg relative overflow-hidden group-hover:shadow-2xl transition-all duration-300">
                 <Code className="w-6 h-6 text-white z-10" />
-                <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 via-blue-500/20 to-purple-500/20 animate-pulse" />
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-emerald-400/30 via-blue-500/30 to-purple-500/30"
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    opacity: [0.3, 0.6, 0.3],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Number.POSITIVE_INFINITY,
+                  }}
+                />
               </div>
-              <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-400 bg-clip-text text-transparent">
-                Diya Dey
-              </span>
+
+              {/* TrueFocus name shimmer effect */}
+<div className="relative inline-block">
+  <TrueFocus
+    sentence="Diya Dey"
+    manualMode={false}
+    blurAmount={3}
+    borderColor="#fbbf24"
+    glowColor="rgba(251, 191, 36, 0.8)"
+    animationDuration={0.4}
+    pauseBetweenAnimations={2}
+  />
+
+  {/* Subtle shimmer overlay around the text */}
+  <motion.div
+    className="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-400/10 to-transparent -skew-x-12 pointer-events-none rounded-full"
+    animate={{ x: [-25, 25] }}
+    transition={{ duration: 2, repeat: Infinity, repeatDelay: 2 }}
+  />
+</div>
+
             </Link>
           </motion.div>
 
