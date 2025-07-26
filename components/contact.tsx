@@ -20,7 +20,7 @@ const contactMethods = [
     title: "Phone",
     value: "(+91) 9647844040",
     href: "tel:+919647844040",
-    gradient: "from-green-500 to-emerald-500",
+    gradient: "from-emerald-500 to-green-500",
   },
   {
     icon: MapPin,
@@ -40,10 +40,12 @@ const contactMethods = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 px-4 relative overflow-hidden">
+    <section
+      id="contact"
+      className="py-24 px-4 relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900"
+    >
       {/* Background elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-white to-pink-50"></div>
-      <div className="absolute top-0 left-0 w-full h-full bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-5"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
@@ -54,11 +56,11 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-400 bg-clip-text text-transparent">
               Let's Work Together
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Ready to bring your ideas to life? Let's discuss your next project
           </p>
         </motion.div>
@@ -79,15 +81,15 @@ export default function Contact() {
               whileTap={{ scale: 0.95 }}
               className="block"
             >
-              <Card className="text-center border-0 shadow-xl bg-white/80 backdrop-blur-sm hover:shadow-2xl transition-all duration-300 group cursor-pointer">
+              <Card className="text-center border-0 shadow-xl bg-slate-800/70 backdrop-blur-sm hover:shadow-2xl transition-all duration-300 group cursor-pointer border border-gray-700/50">
                 <CardContent className="p-6">
                   <div
-                    className={`w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-r ${method.gradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                    className={`w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-r ${method.gradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}
                   >
                     <method.icon className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="font-bold text-gray-900 mb-2">{method.title}</h3>
-                  <p className="text-gray-600 text-sm">{method.value}</p>
+                  <h3 className="font-bold text-white mb-2">{method.title}</h3>
+                  <p className="text-gray-400 text-sm">{method.value}</p>
                 </CardContent>
               </Card>
             </motion.a>
@@ -102,8 +104,8 @@ export default function Contact() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <Card className="border-0 shadow-2xl bg-white/90 backdrop-blur-sm overflow-hidden">
-              <CardHeader className="bg-gradient-to-r from-purple-600 to-pink-600 text-white">
+            <Card className="border-0 shadow-2xl bg-slate-800/90 backdrop-blur-sm overflow-hidden border border-gray-700/50">
+              <CardHeader className="bg-gradient-to-r from-emerald-500 via-blue-600 to-purple-600 text-white">
                 <CardTitle className="text-2xl flex items-center gap-3">
                   <MessageCircle className="w-6 h-6" />
                   Send a Message
@@ -113,38 +115,38 @@ export default function Contact() {
                 <form className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">Name</label>
                       <Input
                         placeholder="Your Name"
-                        className="border-2 border-gray-200 focus:border-purple-400 transition-colors"
+                        className="border-2 border-gray-600 focus:border-emerald-400 transition-colors bg-slate-700/50 text-white placeholder:text-gray-400"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">Email</label>
                       <Input
                         type="email"
                         placeholder="your.email@example.com"
-                        className="border-2 border-gray-200 focus:border-purple-400 transition-colors"
+                        className="border-2 border-gray-600 focus:border-emerald-400 transition-colors bg-slate-700/50 text-white placeholder:text-gray-400"
                       />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">Subject</label>
                     <Input
                       placeholder="Project Discussion"
-                      className="border-2 border-gray-200 focus:border-purple-400 transition-colors"
+                      className="border-2 border-gray-600 focus:border-emerald-400 transition-colors bg-slate-700/50 text-white placeholder:text-gray-400"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                    <label className="block text-sm font-medium text-gray-300 mb-2">Message</label>
                     <Textarea
                       placeholder="Tell me about your project..."
                       rows={6}
-                      className="border-2 border-gray-200 focus:border-purple-400 transition-colors resize-none"
+                      className="border-2 border-gray-600 focus:border-emerald-400 transition-colors resize-none bg-slate-700/50 text-white placeholder:text-gray-400"
                     />
                   </div>
                   <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                    <Button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-3 text-lg shadow-lg hover:shadow-xl transition-all duration-300">
+                    <Button className="w-full bg-gradient-to-r from-emerald-500 via-blue-600 to-purple-600 hover:from-emerald-400 hover:via-blue-500 hover:to-purple-500 text-white py-3 text-lg shadow-lg hover:shadow-xl transition-all duration-300 border-0">
                       <Send className="w-5 h-5 mr-2" />
                       Send Message
                     </Button>
@@ -163,8 +165,8 @@ export default function Contact() {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">Ready to Start Your Project?</h3>
-              <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
+              <h3 className="text-3xl font-bold text-white mb-6">Ready to Start Your Project?</h3>
+              <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
                 <p>
                   I'm always excited to work on new projects and collaborate with amazing people. Whether you need a
                   full-stack web application, blockchain integration, or AI-powered solutions, I'm here to help bring
@@ -177,7 +179,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <Card className="border-0 shadow-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white">
+            <Card className="border-0 shadow-xl bg-gradient-to-r from-emerald-500 via-blue-600 to-purple-600 text-white">
               <CardContent className="p-8">
                 <h4 className="text-xl font-bold mb-4">What I Offer:</h4>
                 <ul className="space-y-3">

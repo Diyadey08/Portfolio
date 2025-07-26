@@ -13,8 +13,10 @@ const stats = [
 
 export default function About() {
   return (
-    <section id="about" className="py-24 px-4 relative">
-      <div className="max-w-7xl mx-auto">
+    <section id="about" className="py-24 px-4 relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-5"></div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -23,9 +25,11 @@ export default function About() {
           className="text-center mb-16"
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">About Me</span>
+            <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-400 bg-clip-text text-transparent">
+              About Me
+            </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Passionate about creating digital experiences that make a difference
           </p>
         </motion.div>
@@ -41,12 +45,12 @@ export default function About() {
           {stats.map((stat, index) => (
             <motion.div
               key={index}
-              whileHover={{ scale: 1.05 }}
-              className="text-center p-6 rounded-2xl bg-white/60 backdrop-blur-sm border border-white/20 shadow-xl"
+              whileHover={{ scale: 1.05, y: -5 }}
+              className="text-center p-6 rounded-2xl bg-slate-800/60 backdrop-blur-sm border border-emerald-500/20 shadow-xl hover:shadow-2xl transition-all duration-300"
             >
-              <stat.icon className="w-8 h-8 mx-auto mb-3 text-purple-600" />
-              <div className="text-3xl font-bold text-gray-900 mb-1">{stat.value}</div>
-              <div className="text-sm text-gray-600">{stat.label}</div>
+              <stat.icon className="w-8 h-8 mx-auto mb-3 text-emerald-400" />
+              <div className="text-3xl font-bold text-white mb-1">{stat.value}</div>
+              <div className="text-sm text-gray-400">{stat.label}</div>
             </motion.div>
           ))}
         </motion.div>
@@ -58,8 +62,8 @@ export default function About() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-3xl font-bold text-gray-900 mb-6">Passionate Developer & Innovator</h3>
-            <div className="space-y-4 text-gray-600 text-lg leading-relaxed">
+            <h3 className="text-3xl font-bold text-white mb-6">Passionate Developer & Innovator</h3>
+            <div className="space-y-4 text-gray-300 text-lg leading-relaxed">
               <p>
                 I'm a full-stack web developer with expertise in modern JavaScript frameworks, blockchain technology,
                 and machine learning. Currently pursuing B.Tech in Computer Science with specialization in IoT, Cyber
@@ -97,7 +101,7 @@ export default function About() {
                 title: "Specialization",
                 subtitle: "Full-Stack Development & Blockchain",
                 detail: "MERN Stack, Next.js, Solidity",
-                gradient: "from-green-500 to-emerald-500",
+                gradient: "from-emerald-500 to-green-500",
               },
               {
                 icon: Brain,
@@ -112,16 +116,16 @@ export default function About() {
                 whileHover={{ scale: 1.02, y: -5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <Card className="overflow-hidden border-0 shadow-xl bg-white/70 backdrop-blur-sm hover:shadow-2xl transition-all duration-300">
+                <Card className="overflow-hidden border-0 shadow-xl bg-slate-800/70 backdrop-blur-sm hover:shadow-2xl transition-all duration-300 border border-gray-700/50">
                   <CardContent className="p-6">
                     <div className="flex items-start gap-4">
-                      <div className={`p-3 rounded-xl bg-gradient-to-r ${item.gradient} text-white`}>
+                      <div className={`p-3 rounded-xl bg-gradient-to-r ${item.gradient} text-white shadow-lg`}>
                         <item.icon className="w-6 h-6" />
                       </div>
                       <div className="flex-1">
-                        <h4 className="font-bold text-gray-900 text-lg mb-1">{item.title}</h4>
-                        <p className="text-gray-700 font-medium mb-1">{item.subtitle}</p>
-                        <p className="text-sm text-gray-500">{item.detail}</p>
+                        <h4 className="font-bold text-white text-lg mb-1">{item.title}</h4>
+                        <p className="text-gray-300 font-medium mb-1">{item.subtitle}</p>
+                        <p className="text-sm text-gray-400">{item.detail}</p>
                       </div>
                     </div>
                   </CardContent>
