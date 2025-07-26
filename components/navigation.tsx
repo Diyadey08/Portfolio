@@ -9,21 +9,40 @@ import { motion, AnimatePresence } from "framer-motion"
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [activeSection, setActiveSection] = useState("")
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
+
+      // Detect active section
+      const sections = ["hero", "about", "experience", "projects", "skills", "contact"]
+      const scrollPosition = window.scrollY + 100
+
+      for (const section of sections) {
+        const element = document.getElementById(section === "hero" ? "" : section)
+        if (element) {
+          const offsetTop = element.offsetTop
+          const offsetHeight = element.offsetHeight
+
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section === "hero" ? "" : section)
+            break
+          }
+        }
+      }
     }
+
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   const navItems = [
-    { href: "#about", label: "About" },
-    { href: "#experience", label: "Experience" },
-    { href: "#projects", label: "Projects" },
-    { href: "#skills", label: "Skills" },
-    { href: "#contact", label: "Contact" },
+    { href: "#about", label: "About", id: "about" },
+    { href: "#experience", label: "Experience", id: "experience" },
+    { href: "#projects", label: "Projects", id: "projects" },
+    { href: "#skills", label: "Skills", id: "skills" },
+    { href: "#contact", label: "Contact", id: "contact" },
   ]
 
   return (
@@ -32,15 +51,16 @@ export default function Navigation() {
       animate={{ y: 0 }}
       transition={{ duration: 0.8 }}
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-        isScrolled ? "bg-slate-900/95 backdrop-blur-md shadow-2xl border-b border-emerald-500/20" : "bg-transparent"
+        isScrolled ? "bg-slate-950/95 backdrop-blur-xl shadow-2xl border-b border-emerald-500/20" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-20">
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link href="/" className="flex items-center gap-2 text-2xl font-bold">
-              <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 via-blue-600 to-purple-600 rounded-lg flex items-center justify-center shadow-lg">
-                <Code className="w-6 h-6 text-white" />
+              <div className="w-10 h-10 bg-gradient-to-r from-emerald-500 via-blue-600 to-purple-600 rounded-lg flex items-center justify-center shadow-lg relative overflow-hidden">
+                <Code className="w-6 h-6 text-white z-10" />
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 via-blue-500/20 to-purple-500/20 animate-pulse" />
               </div>
               <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-amber-400 bg-clip-text text-transparent">
                 Diya Dey
@@ -49,7 +69,7 @@ export default function Navigation() {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-2">
             {navItems.map((item, index) => (
               <motion.div
                 key={item.href}
@@ -59,17 +79,58 @@ export default function Navigation() {
               >
                 <Link
                   href={item.href}
-                  className="text-yellow-300 hover:text-yellow-400 transition-all duration-300 font-medium relative group text-lg"
+                  className={`relative px-6 py-3 text-lg font-medium transition-all duration-300 rounded-xl group ${
+                    activeSection === item.id
+                      ? "text-yellow-300 bg-gradient-to-r from-emerald-500/20 via-blue-500/20 to-purple-500/20 border border-emerald-400/30"
+                      : "text-yellow-300 hover:text-yellow-400"
+                  }`}
                 >
                   {item.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-400 via-blue-400 to-purple-400 group-hover:w-full transition-all duration-300"></span>
+
+                  {/* Mystical glow effect */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 via-blue-500/10 to-purple-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
-                    whileHover={{ scale: 1.1 }}
+                    className="absolute inset-0 bg-gradient-to-r from-emerald-400/10 via-blue-400/10 to-purple-400/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"
+                    whileHover={{ scale: 1.05 }}
                   />
+
+                  {/* Active indicator */}
+                  {activeSection === item.id && (
+                    <motion.div
+                      layoutId="activeSection"
+                      className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 via-blue-500/10 to-purple-500/10 rounded-xl border border-emerald-400/30 -z-10"
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    />
+                  )}
+
+                  {/* Underline effect */}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-400 via-blue-400 to-purple-400 group-hover:w-full transition-all duration-500"></span>
+
+                  {/* Mystical particles */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {[...Array(3)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        className="absolute w-1 h-1 bg-emerald-400 rounded-full"
+                        style={{
+                          left: `${20 + i * 30}%`,
+                          top: `${10 + i * 20}%`,
+                        }}
+                        animate={{
+                          y: [-2, -8, -2],
+                          opacity: [0, 1, 0],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Number.POSITIVE_INFINITY,
+                          delay: i * 0.2,
+                        }}
+                      />
+                    ))}
+                  </div>
                 </Link>
               </motion.div>
             ))}
+
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -79,19 +140,38 @@ export default function Navigation() {
             >
               <Button
                 asChild
-                className="bg-gradient-to-r from-emerald-500 via-blue-600 to-purple-600 hover:from-emerald-400 hover:via-blue-500 hover:to-purple-500 text-white shadow-lg hover:shadow-xl transition-all duration-300 border-0 px-6 py-2 text-lg font-semibold"
+                className="relative bg-gradient-to-r from-emerald-500 via-blue-600 to-purple-600 hover:from-emerald-400 hover:via-blue-500 hover:to-purple-500 text-white shadow-lg hover:shadow-2xl transition-all duration-300 border-0 px-8 py-3 text-lg font-semibold overflow-hidden group"
               >
-                <Link href="#contact">Hire Me</Link>
+                <Link href="#contact">
+                  <span className="relative z-10">Hire Me</span>
+
+                  {/* Mystical shimmer effect */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12"
+                    animate={{
+                      x: [-100, 200],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Number.POSITIVE_INFINITY,
+                      repeatDelay: 3,
+                    }}
+                  />
+
+                  {/* Pulsing glow */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 via-blue-500/20 to-purple-500/20 animate-pulse" />
+                </Link>
               </Button>
             </motion.div>
           </div>
 
           {/* Mobile Navigation Toggle */}
           <motion.button
-            className="lg:hidden p-2 rounded-lg hover:bg-slate-800/50 transition-colors text-yellow-300"
+            className="lg:hidden p-2 rounded-lg hover:bg-slate-800/50 transition-colors text-yellow-300 relative overflow-hidden group"
             onClick={() => setIsOpen(!isOpen)}
             whileTap={{ scale: 0.95 }}
           >
+            <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/10 via-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             <AnimatePresence mode="wait">
               {isOpen ? (
                 <motion.div
@@ -126,7 +206,7 @@ export default function Navigation() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden bg-slate-900/98 backdrop-blur-md border-t border-emerald-500/20 overflow-hidden"
+              className="lg:hidden bg-slate-950/98 backdrop-blur-xl border-t border-emerald-500/20 overflow-hidden"
             >
               <div className="px-4 py-6 space-y-4">
                 {navItems.map((item, index) => (
@@ -138,10 +218,15 @@ export default function Navigation() {
                   >
                     <Link
                       href={item.href}
-                      className="block py-3 px-4 text-yellow-300 hover:text-yellow-400 hover:bg-gradient-to-r hover:from-emerald-500/10 hover:via-blue-500/10 hover:to-purple-500/10 rounded-lg transition-all duration-300 font-medium"
+                      className={`block py-3 px-4 text-yellow-300 hover:text-yellow-400 hover:bg-gradient-to-r hover:from-emerald-500/10 hover:via-blue-500/10 hover:to-purple-500/10 rounded-lg transition-all duration-300 font-medium relative group ${
+                        activeSection === item.id
+                          ? "bg-gradient-to-r from-emerald-500/20 via-blue-500/20 to-purple-500/20 border border-emerald-400/30"
+                          : ""
+                      }`}
                       onClick={() => setIsOpen(false)}
                     >
                       {item.label}
+                      <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/5 via-blue-400/5 to-purple-400/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
                     </Link>
                   </motion.div>
                 ))}
@@ -153,10 +238,11 @@ export default function Navigation() {
                 >
                   <Button
                     asChild
-                    className="w-full bg-gradient-to-r from-emerald-500 via-blue-600 to-purple-600 hover:from-emerald-400 hover:via-blue-500 hover:to-purple-500 text-white shadow-lg"
+                    className="w-full bg-gradient-to-r from-emerald-500 via-blue-600 to-purple-600 hover:from-emerald-400 hover:via-blue-500 hover:to-purple-500 text-white shadow-lg relative overflow-hidden group"
                   >
                     <Link href="#contact" onClick={() => setIsOpen(false)}>
-                      Hire Me
+                      <span className="relative z-10">Hire Me</span>
+                      <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 via-blue-500/20 to-purple-500/20 animate-pulse" />
                     </Link>
                   </Button>
                 </motion.div>
