@@ -172,19 +172,36 @@ export default function Hero() {
           className="flex justify-center gap-6"
         >
           {[
-            { icon: Phone, href: "tel:+919647844040", color: "hover:text-emerald-400", bg: "hover:bg-emerald-400/20" },
+            { 
+              icon: Phone, 
+              href: `tel:${process.env.NEXT_PUBLIC_PHONE || "+919647844040"}`, 
+              color: "hover:text-emerald-400", 
+              bg: "hover:bg-emerald-400/20" 
+            },
             {
               icon: Mail,
-              href: "mailto:diyadey310804@gmail.com",
+              href: `mailto:${process.env.NEXT_PUBLIC_EMAIL || "diyadey310804@gmail.com"}`,
               color: "hover:text-blue-400",
               bg: "hover:bg-blue-400/20",
             },
-            { icon: Linkedin, href: "#", color: "hover:text-purple-400", bg: "hover:bg-purple-400/20" },
-            { icon: Github, href: "#", color: "hover:text-yellow-400", bg: "hover:bg-yellow-400/20" },
+            { 
+              icon: Linkedin, 
+              href: process.env.NEXT_PUBLIC_LINKEDIN_URL || "#", 
+              color: "hover:text-purple-400", 
+              bg: "hover:bg-purple-400/20" 
+            },
+            { 
+              icon: Github, 
+              href: process.env.NEXT_PUBLIC_GITHUB_URL || "#", 
+              color: "hover:text-yellow-400", 
+              bg: "hover:bg-yellow-400/20" 
+            },
           ].map((social, index) => (
             <motion.div key={index} whileHover={{ scale: 1.2, rotate: 5, y: -2 }} whileTap={{ scale: 0.9 }}>
               <Link
                 href={social.href}
+                target={social.href.startsWith('http') ? "_blank" : undefined}
+                rel={social.href.startsWith('http') ? "noopener noreferrer" : undefined}
                 className={`relative text-gray-400 ${social.color} ${social.bg} transition-all duration-300 p-3 rounded-full hover:shadow-lg backdrop-blur-sm border border-gray-700/50 hover:border-gray-600 group overflow-hidden`}
               >
                 <social.icon className="w-6 h-6 relative z-10" />

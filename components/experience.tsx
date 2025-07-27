@@ -4,9 +4,18 @@ import { Badge } from "@/components/ui/badge"
 import { Calendar, MapPin, ExternalLink, Briefcase, GraduationCap, Code2 } from "lucide-react"
 import { motion } from "framer-motion"
 import { Timeline } from "@/components/ui/timeline"
-import Image from "next/image"
+import { RotatingImageGallery } from "@/components/ui/rotating-image-gallery"
+import { useState, useEffect } from "react"
 
 export default function Experience() {
+  const [experienceImages, setExperienceImages] = useState<any>(null)
+
+  useEffect(() => {
+    fetch('/experience-images.json')
+      .then(response => response.json())
+      .then(data => setExperienceImages(data.experienceImages))
+      .catch(error => console.error('Error loading experience images:', error))
+  }, [])
   const data = [
     {
       title: "2025",
@@ -97,26 +106,16 @@ export default function Experience() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="relative group">
-              <Image
-                src="/placeholder.svg?height=300&width=500"
-                alt="Kalakaar platform interface"
-                width={500}
-                height={300}
-                className="h-32 w-full rounded-lg object-cover shadow-2xl transition-transform duration-300 group-hover:scale-105 md:h-44 lg:h-60"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
-            <div className="relative group">
-              <Image
-                src="/placeholder.svg?height=300&width=500"
-                alt="Web development project"
-                width={500}
-                height={300}
-                className="h-32 w-full rounded-lg object-cover shadow-2xl transition-transform duration-300 group-hover:scale-105 md:h-44 lg:h-60"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
+            <RotatingImageGallery
+              images={experienceImages?.kalakaar || []}
+              gradientColors="bg-gradient-to-r from-emerald-500/20 to-teal-500/20"
+              className="w-full"
+            />
+            <RotatingImageGallery
+              images={experienceImages?.zidio || []}
+              gradientColors="bg-gradient-to-r from-blue-500/20 to-indigo-500/20"
+              className="w-full"
+            />
           </div>
         </div>
       ),
@@ -208,26 +207,16 @@ export default function Experience() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="relative group">
-              <Image
-                src="https://sjc.microlink.io/BM-ahkMY7VncIupujGCNPKa-vdzKviYt-WM0rOU4MZjzEOO57LJbLkXWqhrJN1hXYi33FKYkYesCRIkoxZ35mA.jpeg"
-                alt="FundRise crowdfunding platform"
-                width={500}
-                height={300}
-                className="h-32 w-full rounded-lg object-cover shadow-2xl transition-transform duration-300 group-hover:scale-105 md:h-44 lg:h-60"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-rose-500/20 to-pink-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
-            <div className="relative group">
-              <Image
-                src="/placeholder.svg?height=300&width=500"
-                alt="Phoenix AI framework"
-                width={500}
-                height={300}
-                className="h-32 w-full rounded-lg object-cover shadow-2xl transition-transform duration-300 group-hover:scale-105 md:h-44 lg:h-60"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
+            <RotatingImageGallery
+              images={experienceImages?.fundrise || []}
+              gradientColors="bg-gradient-to-r from-rose-500/20 to-pink-500/20"
+              className="w-full"
+            />
+            <RotatingImageGallery
+              images={experienceImages?.phoenix || []}
+              gradientColors="bg-gradient-to-r from-purple-500/20 to-pink-500/20"
+              className="w-full"
+            />
           </div>
         </div>
       ),
@@ -304,26 +293,16 @@ export default function Experience() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="relative group">
-              <Image
-                src="/placeholder.svg?height=300&width=500"
-                alt="IgnisDine booking system"
-                width={500}
-                height={300}
-                className="h-32 w-full rounded-lg object-cover shadow-2xl transition-transform duration-300 group-hover:scale-105 md:h-44 lg:h-60"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
-            <div className="relative group">
-              <Image
-                src="/placeholder.svg?height=300&width=500"
-                alt="Shopify e-commerce platform"
-                width={500}
-                height={300}
-                className="h-32 w-full rounded-lg object-cover shadow-2xl transition-transform duration-300 group-hover:scale-105 md:h-44 lg:h-60"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-red-500/20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
+            <RotatingImageGallery
+              images={experienceImages?.ignisDine || []}
+              gradientColors="bg-gradient-to-r from-orange-500/20 to-red-500/20"
+              className="w-full"
+            />
+            <RotatingImageGallery
+              images={experienceImages?.shopify || []}
+              gradientColors="bg-gradient-to-r from-orange-500/20 to-red-500/20"
+              className="w-full"
+            />
           </div>
         </div>
       ),

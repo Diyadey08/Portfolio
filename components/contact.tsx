@@ -4,28 +4,28 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin, Send, MessageCircle, Calendar } from "lucide-react"
+import { Mail, Phone, MapPin, Send, MessageCircle, Calendar, Github, Linkedin } from "lucide-react"
 import { motion } from "framer-motion"
 
 const contactMethods = [
   {
     icon: Mail,
     title: "Email",
-    value: "diyadey310804@gmail.com",
-    href: "mailto:diyadey310804@gmail.com",
+    value: process.env.NEXT_PUBLIC_EMAIL || "diyadey310804@gmail.com",
+    href: `mailto:${process.env.NEXT_PUBLIC_EMAIL || "diyadey310804@gmail.com"}`,
     gradient: "from-red-500 to-pink-500",
   },
   {
     icon: Phone,
     title: "Phone",
-    value: "(+91) 9647844040",
-    href: "tel:+919647844040",
+    value: process.env.NEXT_PUBLIC_PHONE || "(+91) 9647844040",
+    href: `tel:${process.env.NEXT_PUBLIC_PHONE || "+919647844040"}`,
     gradient: "from-emerald-500 to-green-500",
   },
   {
     icon: MapPin,
     title: "Location",
-    value: "Kolkata, India",
+    value: process.env.NEXT_PUBLIC_LOCATION || "Kolkata, India",
     href: "#",
     gradient: "from-blue-500 to-cyan-500",
   },
@@ -33,8 +33,23 @@ const contactMethods = [
     icon: Calendar,
     title: "Schedule Call",
     value: "Book a meeting",
-    href: "#",
+    href: process.env.NEXT_PUBLIC_CALENDLY_URL || "#",
     gradient: "from-purple-500 to-indigo-500",
+  },
+]
+
+const socialLinks = [
+  {
+    icon: Github,
+    title: "GitHub",
+    href: process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com",
+    gradient: "from-gray-700 to-gray-900",
+  },
+  {
+    icon: Linkedin,
+    title: "LinkedIn",
+    href: process.env.NEXT_PUBLIC_LINKEDIN_URL || "https://linkedin.com",
+    gradient: "from-blue-600 to-blue-800",
   },
 ]
 
@@ -71,7 +86,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8"
         >
           {contactMethods.map((method, index) => (
             <motion.a
@@ -81,7 +96,7 @@ export default function Contact() {
               whileTap={{ scale: 0.95 }}
               className="block"
             >
-              <Card className="text-center border-0 shadow-xl bg-slate-800/70 backdrop-blur-sm hover:shadow-2xl transition-all duration-300 group cursor-pointer border border-gray-700/50">
+              <Card className="text-center shadow-xl bg-slate-800/70 backdrop-blur-sm hover:shadow-2xl transition-all duration-300 group cursor-pointer border border-gray-700/50">
                 <CardContent className="p-6">
                   <div
                     className={`w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-r ${method.gradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg`}
@@ -96,6 +111,41 @@ export default function Contact() {
           ))}
         </motion.div>
 
+        {/* Social Links */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="flex justify-center gap-6 mb-16"
+        >
+          <div className="text-center mb-6">
+            <h3 className="text-2xl font-bold text-white mb-4">Connect With Me</h3>
+            <div className="flex justify-center gap-4">
+              {socialLinks.map((social, index) => (
+                <motion.a
+                  key={index}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1, y: -5 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="group"
+                >
+                  <div
+                    className={`w-14 h-14 rounded-2xl bg-gradient-to-r ${social.gradient} flex items-center justify-center group-hover:scale-110 transition-all duration-300 shadow-lg hover:shadow-xl`}
+                  >
+                    <social.icon className="w-7 h-7 text-white" />
+                  </div>
+                  <p className="text-gray-400 text-sm mt-2 group-hover:text-white transition-colors">
+                    {social.title}
+                  </p>
+                </motion.a>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Contact Form */}
           <motion.div
@@ -104,7 +154,7 @@ export default function Contact() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <Card className="border-0 shadow-2xl bg-slate-800/90 backdrop-blur-sm overflow-hidden border border-gray-700/50">
+            <Card className="shadow-2xl bg-slate-800/90 backdrop-blur-sm overflow-hidden border border-gray-700/50">
               <CardHeader className="bg-gradient-to-r from-emerald-500 via-blue-600 to-purple-600 text-white">
                 <CardTitle className="text-2xl flex items-center gap-3">
                   <MessageCircle className="w-6 h-6" />

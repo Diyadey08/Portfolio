@@ -1,0 +1,184 @@
+{
+  "experienceImages": {
+    "ignisDine": [
+      {
+        "id": 1,
+        "src": "/Ignis1.png",
+        "alt": "IgnisDine - Smart Table Booking System Dashboard",
+        "title": "Dashboard View",
+        "description": "Main dashboard showing table availability and booking management"
+      },
+      {
+        "id": 2,
+        "src": "/Ignis 2.png",
+        "alt": "IgnisDine - Table Booking Interface",
+        "title": "Booking Interface",
+        "description": "User-friendly table reservation interface"
+      },
+      {
+        "id": 3,
+        "src": "/Ignis 3.png",
+        "alt": "IgnisDine - Real-time Availability",
+        "title": "Real-time Updates",
+        "description": "Live table availability with Socket.io integration"
+      }
+    ],
+    "shopify": [
+      {
+        "id": 1,
+        "src": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=500&fit=crop&crop=center",
+        "alt": "Shopify Clone - Product Catalog",
+        "title": "Product Catalog",
+        "description": "Modern e-commerce product browsing with advanced filtering and search"
+      },
+      {
+        "id": 2,
+        "src": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=500&fit=crop&crop=center",
+        "alt": "Shopify Clone - Shopping Cart Interface",
+        "title": "Shopping Cart",
+        "description": "Seamless shopping cart experience with real-time updates"
+      },
+      {
+        "id": 3,
+        "src": "https://images.unsplash.com/photo-1556742111-a301076d9d18?w=800&h=500&fit=crop&crop=center",
+        "alt": "Shopify Clone - Payment Integration",
+        "title": "Payment Gateway",
+        "description": "Secure payment processing with multiple payment method support"
+      },
+      {
+        "id": 4,
+        "src": "https://images.unsplash.com/photo-1607863680198-23d4b2565df0?w=800&h=500&fit=crop&crop=center",
+        "alt": "Shopify Clone - Admin Dashboard",
+        "title": "Admin Dashboard",
+        "description": "Comprehensive admin panel for inventory and order management"
+      }
+    ],
+    "fundrise": [
+      {
+        "id": 1,
+        "src": "/Fundrise.png",
+        "alt": "FundRise - Campaign Dashboard",
+        "title": "Campaign Dashboard",
+        "description": "Crowdfunding campaign management interface with real-time updates"
+      },
+      {
+        "id": 2,
+        "src": "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=800&h=500&fit=crop&crop=center",
+        "alt": "FundRise - Wallet Integration",
+        "title": "Wallet Integration",
+        "description": "Secure Web3 wallet connectivity and transaction management"
+      },
+      {
+        "id": 3,
+        "src": "https://images.unsplash.com/photo-1642104704074-907c0698cbd9?w=800&h=500&fit=crop&crop=center",
+        "alt": "FundRise - Fund Tracking",
+        "title": "Fund Tracking",
+        "description": "Transparent fund tracking and community support visualization"
+      }
+    ],
+    "phoenix": [
+      {
+        "id": 1,
+        "src": "/Phoenix.png",
+        "alt": "Phoenix AI Framework - Main Interface",
+        "title": "Agent Builder",
+        "description": "Visual drag-and-drop interface for creating intelligent AI agents"
+      },
+      {
+        "id": 2,
+        "src": "/Phoenix2.png",
+        "alt": "Phoenix AI Framework - Tool Integration Dashboard",
+        "title": "Tool Integration",
+        "description": "Dynamic tool execution and real-world API integration management"
+      },
+      {
+        "id": 3,
+        "src": "/Phoenix3.png",
+        "alt": "Phoenix AI Framework - Agent Testing Environment",
+        "title": "Testing Environment",
+        "description": "Comprehensive testing suite for AI agent behavior and responses"
+      },
+      {
+        "id": 4,
+        "src": "/Phoenix4.png",
+        "alt": "Phoenix AI Framework - NFT Deployment",
+        "title": "OnChain Deployment",
+        "description": "Blockchain integration for deploying agents as NFTs with smart contracts"
+      },
+      {
+        "id": 5,
+        "src": "/Phoenix5.png",
+        "alt": "Phoenix AI Framework - Analytics Dashboard",
+        "title": "Analytics & Monitoring",
+        "description": "Real-time performance metrics and agent behavior analytics"
+      }
+    ],
+    "kalakaar": [
+      {
+        "id": 1,
+        "src": "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800&h=500&fit=crop&crop=center",
+        "alt": "Kalakaar - Educational Platform Interface",
+        "title": "Learning Platform",
+        "description": "Creative education platform for art and design workshops"
+      },
+      {
+        "id": 2,
+        "src": "https://images.unsplash.com/photo-1541354329998-f4d9a9f9297f?w=800&h=500&fit=crop&crop=center",
+        "alt": "Kalakaar - Workshop Management System",
+        "title": "Workshop Management",
+        "description": "Comprehensive system for organizing art workshops and crash courses"
+      },
+      {
+        "id": 3,
+        "src": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=500&fit=crop&crop=center",
+        "alt": "Kalakaar - Student Portfolio Feature",
+        "title": "Student Portfolios",
+        "description": "Feature for students to showcase their creative work and progress"
+      }
+    ],
+    "zidio": [
+      {
+        "id": 1,
+        "src": "/NewsApp1.png",
+        "alt": "Zidio Development - News Application",
+        "title": "News App Project",
+        "description": "Modern news application with real-time updates and clean UI design"
+      },
+      {
+        "id": 2,
+        "src": "/NewsApp2.png",
+        "alt": "Zidio Development - News App Features",
+        "title": "News App Features",
+        "description": "Advanced filtering, categorization, and user-friendly interface"
+      },
+      {
+        "id": 3,
+        "src": "/NewsApp3.png",
+        "alt": "Zidio Development - News App Dashboard",
+        "title": "News Dashboard",
+        "description": "Comprehensive dashboard for news management and analytics"
+      },
+      {
+        "id": 4,
+        "src": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=500&fit=crop&crop=center",
+        "alt": "Zidio Development - Web Development Projects",
+        "title": "Web Development",
+        "description": "Modern web development projects using latest technologies and best practices"
+      },
+      {
+        "id": 5,
+        "src": "https://images.unsplash.com/photo-1555099962-4199c345e5dd?w=800&h=500&fit=crop&crop=center",
+        "alt": "Zidio Development - Collaboration Tools",
+        "title": "Team Collaboration",
+        "description": "Development team collaboration and project management experience"
+      }
+    ]
+  },
+  "settings": {
+    "autoChangeInterval": 3000,
+    "transitionDuration": 500,
+    "enableHoverPause": true,
+    "showIndicators": true,
+    "enableManualNavigation": true
+  }
+}
