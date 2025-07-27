@@ -6,18 +6,31 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import Orb from "@/components/ui/orb"
 import DynamicProfilePicture from "./ui/dynamic-profile-picture"
+import LiquidChrome from "@/components/ui/liquid-chrome"
 
 export default function Hero() {
   return (
     <section className="min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden bg-gradient-to-br from-slate-950 via-purple-950 to-slate-950">
+      {/* Liquid Chrome Background */}
+      <div className="absolute inset-0 opacity-15">
+        <LiquidChrome 
+          baseColor={[0.1, 0.05, 0.2]}
+          speed={0.3}
+          amplitude={0.3}
+          frequencyX={2}
+          frequencyY={1.5}
+          interactive={true}
+        />
+      </div>
+      
       {/* Mystical Orbs */}
-      <div className="absolute top-20 right-20 w-64 h-64 opacity-60">
+      <div className="absolute top-20 right-20 w-64 h-64 opacity-60 hidden lg:block">
         <Orb hue={120} hoverIntensity={0.3} />
       </div>
-      <div className="absolute bottom-20 left-20 w-48 h-48 opacity-40">
+      <div className="absolute bottom-20 left-20 w-48 h-48 opacity-40 hidden lg:block">
         <Orb hue={240} hoverIntensity={0.4} rotateOnHover={false} />
       </div>
-      <div className="absolute top-1/2 right-1/4 w-32 h-32 opacity-30">
+      <div className="absolute top-1/2 right-1/4 w-32 h-32 opacity-30 hidden lg:block">
         <Orb hue={300} hoverIntensity={0.2} forceHoverState={true} />
       </div>
 

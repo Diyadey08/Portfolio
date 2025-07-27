@@ -13,8 +13,7 @@ const projects = [
     title: "FundRise - Crowdfunding Platform",
     description:
       "A modern crowdfunding platform that enables users to create campaigns, reach funding goals, and bring ideas to life through community support. Features secure wallet integration and transparent fund management with real-time updates.",
-    image:
-      "https://sjc.microlink.io/BM-ahkMY7VncIupujGCNPKa-vdzKviYt-WM0rOU4MZjzEOO57LJbLkXWqhrJN1hXYi33FKYkYesCRIkoxZ35mA.jpeg",
+    image: "/Fundrise.png",
     technologies: ["Next.js", "React", "Blockchain", "Web3", "Tailwind CSS", "Smart Contracts"],
     liveUrl: "https://fundrise-tan.vercel.app/",
     githubUrl: "#",
@@ -26,7 +25,7 @@ const projects = [
     title: "Phoenix - AI Agent Framework",
     description:
       "A modular AI agent framework enabling developers to build, test, and run intelligent agents with real-world tool access. Features dynamic tool execution, selective activation, and onChain deployment as NFTs for buying and selling AI agents.",
-    image: "/placeholder.svg?height=300&width=500",
+    image: "/Phoenix.png",
     technologies: ["Next.js", "Vercel AI SDK", "TypeScript", "Solidity", "OAuth", "OpenAI"],
     liveUrl: "https://agentix2-git-main-santu8597s-projects.vercel.app",
     githubUrl: "#",
@@ -38,7 +37,7 @@ const projects = [
     title: "IgnisDine - Smart Table Booking",
     description:
       "A web application offering an intuitive dining experience with real-time booking and reservation management. Users can book tables, view availability, and manage reservations seamlessly with live updates.",
-    image: "/placeholder.svg?height=300&width=500",
+    image: "/Ignis1.png",
     technologies: ["MongoDB", "Express.js", "React.js", "Node.js", "Socket.io"],
     liveUrl: "#",
     githubUrl: "#",
@@ -47,11 +46,11 @@ const projects = [
     gradient: "from-emerald-500 to-green-500",
   },
   {
-    title: "Shopify - Modern Shopping App",
+    title: "NewsApp - Modern News Platform",
     description:
-      "A secure shopping application with the latest product collections. Users can browse products without signup popups and securely complete orders with modern authentication and payment integration.",
-    image: "/placeholder.svg?height=300&width=500",
-    technologies: ["MongoDB", "Express.js", "React.js", "Node.js", "Redux Toolkit", "Stripe"],
+      "A comprehensive news application providing real-time updates and personalized content delivery. Features category-based filtering, search functionality, and responsive design for optimal reading experience across all devices.",
+    image: "/NewsApp1.png",
+    technologies: ["React.js", "Node.js", "Express.js", "News API", "Redux", "Bootstrap"],
     liveUrl: "#",
     githubUrl: "#",
     featured: false,
@@ -93,25 +92,29 @@ export default function Projects() {
               viewport={{ once: true }}
             >
               <Card
-                className={`overflow-hidden border-0 shadow-xl bg-slate-800/70 backdrop-blur-sm hover:shadow-2xl transition-all duration-500 group border border-gray-700/50 ${
+                className={`overflow-hidden shadow-xl bg-slate-800/70 backdrop-blur-sm hover:shadow-2xl transition-all duration-500 group border border-gray-700/50 ${
                   project.featured ? "ring-2 ring-emerald-500/30" : ""
                 }`}
               >
-                <div className={`grid ${project.featured ? "lg:grid-cols-2" : "lg:grid-cols-5"} gap-0`}>
-                  <div className={`relative overflow-hidden ${project.featured ? "lg:col-span-1" : "lg:col-span-2"}`}>
-                    <div className="relative h-64 lg:h-full">
-                      <Image
-                        src={project.image || "/placeholder.svg"}
-                        alt={project.title}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
+                <div className="grid lg:grid-cols-2 gap-0">
+                  <div className="relative overflow-hidden lg:col-span-1">
+                    <div className="relative h-80 lg:h-96 p-4 flex items-center justify-center bg-gradient-to-br from-slate-900/50 to-slate-800/50">
+                      <div className="relative w-full h-full">
+                        <Image
+                          src={project.image || "/placeholder.svg"}
+                          alt={project.title}
+                          fill
+                          className="object-contain transition-transform duration-500 group-hover:scale-105 rounded-lg"
+                          priority={project.featured}
+                        />
+                      </div>
+                      
                       <div
-                        className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-20 group-hover:opacity-30 transition-opacity duration-300`}
+                        className={`absolute inset-0 bg-gradient-to-r ${project.gradient} opacity-10 group-hover:opacity-20 transition-opacity duration-300 rounded-lg`}
                       />
 
                       {project.featured && (
-                        <div className="absolute top-4 left-4">
+                        <div className="absolute top-8 left-8">
                           <Badge className={`bg-gradient-to-r ${project.gradient} text-white border-0 shadow-lg`}>
                             <Star className="w-3 h-3 mr-1" />
                             Featured
@@ -119,7 +122,7 @@ export default function Projects() {
                         </div>
                       )}
 
-                      <div className="absolute bottom-4 right-4 flex gap-2">
+                      <div className="absolute bottom-8 right-8 flex gap-2">
                         <div className="flex items-center gap-1 bg-black/50 backdrop-blur-sm text-white px-2 py-1 rounded-full text-xs">
                           <Star className="w-3 h-3" />
                           {project.stats.stars}
@@ -132,7 +135,7 @@ export default function Projects() {
                     </div>
                   </div>
 
-                  <div className={`p-8 ${project.featured ? "lg:col-span-1" : "lg:col-span-3"}`}>
+                  <div className="p-8 lg:col-span-1">
                     <CardHeader className="p-0 mb-6">
                       <CardTitle className="text-2xl font-bold text-white mb-3 group-hover:text-emerald-400 transition-colors">
                         {project.title}
